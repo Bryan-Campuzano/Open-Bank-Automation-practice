@@ -1,5 +1,7 @@
 # 🏦 Proyecto de Testing API — OpenBank
 
+![alt text](https://github.com/Bryan-Campuzano/Open-Bank-Automation_practice/blob/master/banner.pngB)
+
 ## 📘 Descripción General
 
 Este proyecto tiene como objetivo realizar **pruebas automatizadas de la API pública de OpenBank** utilizando **Karate** para las pruebas funcionales y **Apache JMeter** para las pruebas de rendimiento.  
