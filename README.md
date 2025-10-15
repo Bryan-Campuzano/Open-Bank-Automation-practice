@@ -1,6 +1,6 @@
 # 🏦 Proyecto de Testing API — OpenBank
 
-![alt text](https://github.com/Bryan-Campuzano/Open-Bank-Automation_practice/blob/master/banner.pngB)
+![alt text](https://github.com/Bryan-Campuzano/Open-Bank-Automation_practice/blob/master/banner.png)
 
 ## 📘 Descripción General
 
