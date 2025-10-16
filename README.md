@@ -63,12 +63,18 @@ Los escenarios estarán diseñados para validar los endpoints públicos de OpenB
 
 ### 🧩 **Escenarios definidos:**
 
-| # | Escenario | Descripción breve |
-|---|------------|-------------------|
-| 1 | **Autenticación válida** | Validar que el endpoint `/login` devuelve un token válido al enviar credenciales correctas. |
-| 2 | **Listado de cuentas** | Verificar que el endpoint `/accounts` devuelve la lista completa de cuentas del usuario autenticado. |
-| 3 | **Transferencia fallida** | Simular una transferencia con fondos insuficientes y validar que retorna el error `400 Bad Request`. |
-| 4 | ... | *(Espacio reservado para más casos)* |
+| #  | Escenario                              | Descripción breve |
+| -- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| 1  | Autenticación válida                   | Verifica que el endpoint `/login` devuelve un token válido con credenciales correctas.                      |
+| 2  | Autenticación inválida                 | Envía credenciales incorrectas y valida que la API responda con `401 Unauthorized`.                         |
+| 3  | Listado de bancos                      | Consulta el endpoint `/banks` y verifica que devuelva la lista completa de bancos disponibles.              |
+| 4  | Detalle de un banco específico         | Usa el endpoint `/banks/{bank_id}` y comprueba que la respuesta contiene información válida y estructurada. |
+| 5  | Listado de ATMs                        | Valida que `/banks/{bank_id}/atms` devuelve una lista no vacía con coordenadas geográficas válidas.         |
+| 6  | Creación de un ATM (POST)              | Envía un cuerpo JSON para crear un nuevo ATM (sandbox) y verifica el código `201 Created`.                  |
+| 7  | Validación de datos faltantes (ATM)    | Prueba con campos obligatorios en blanco y valida el error `400 Bad Request`.                               |
+| 8  | Listado de cuentas del usuario         | Usa `/accounts` para verificar que se obtienen las cuentas asociadas al usuario autenticado.                |
+| 9  | Transferencia simulada                 | Ejecuta un POST en `/transactions` con datos válidos y verifica el código `200 OK` y mensaje de éxito.      |
+| 10 | Transferencia con fondos insuficientes | Simula una transferencia sin fondos y valida el código `400` y mensaje de error.                            |
 
 ---
 
@@ -79,12 +85,19 @@ Se diseñarán pruebas de carga para medir el rendimiento de los endpoints crít
 
 ### 📊 **Casos de rendimiento definidos:**
 
-| # | Endpoint | Tipo de test | Usuarios concurrentes | Duración | Métrica clave |
-|---|-----------|---------------|------------------------|-----------|----------------|
-| 1 | `/login` | Stress Test | 50 | 1 min | % de fallos < 5% |
-| 2 | `/accounts` | Load Test | 20 | 3 min | Tiempo medio < 400ms |
-| 3 | `/transfer` | Spike Test | 100 | 30 s | Recuperación < 2 s |
-| 4 | ... | ... | ... | ... | ... |
+| #  | Endpoint                | Tipo de test     | Usuarios concurrentes | Duración | Métrica clave                                           |
+| -- | ----------------------- | ---------------- | --------------------- | -------- | ------------------------------------------------------- |
+| 1  | `/login`                | Stress Test      | 50                    | 1 min    | % de fallos < 5%                                        |
+| 2  | `/banks`                | Load Test        | 25                    | 3 min    | Tiempo medio < 500 ms                                   |
+| 3  | `/banks/{bank_id}/atms` | Endurance Test   | 10                    | 5 min    | Sin degradación notable del rendimiento                 |
+| 4  | `/accounts`             | Throughput Test  | 30                    | 2 min    | ≥ 100 transacciones/minuto                              |
+| 5  | `/transactions`         | Spike Test       | 100                   | 30 s     | Recuperación < 2 s                                      |
+| 6  | `/banks/{bank_id}`      | Soak Test        | 15                    | 10 min   | Sin fugas de memoria o errores acumulativos             |
+| 7  | `/login`                | Ramp-Up Test     | 60                    | 2 min    | Tiempo medio < 400 ms al aumentar usuarios gradualmente |
+| 8  | `/accounts`             | Concurrency Test | 40                    | 3 min    | Sin errores, respuesta < 500 ms                         |
+| 9  | `/transactions`         | Peak Load Test   | 120                   | 1 min    | Sistema soporta el pico sin caídas                      |
+| 10 | `/banks/{bank_id}/atms` | Stability Test   | 20                    | 15 min   | Sin degradación en throughput ni latencia               |
+
 
 ---
 
