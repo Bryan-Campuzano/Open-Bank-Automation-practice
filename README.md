@@ -41,8 +41,8 @@ openbank-api-testing/
 ├── src/
 │   ├── test/
 │   │   ├── java/
-│   │   │   └── openbank/
-│   │   │       └── OpenBankRunner.java  # Ejecutor de las pruebas funcionales Karate (JUnit runner)
+│   │   │   └── OpenBankTest/
+│   │   │       └── OpenBankTest.java  # Ejecutor de las pruebas funcionales Karate (JUnit runner)
 │   │   │
 │   │   ├── resources/
 │   │   │   ├── features/                # Carpeta con los escenarios funcionales (Karate)
