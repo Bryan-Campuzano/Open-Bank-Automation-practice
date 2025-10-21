@@ -29,7 +29,14 @@
     </dependencies>
 
     <build>
+        <!-- ✅ Sección corregida: ahora incluye src/test/resources -->
         <testResources>
+            <!-- Recursos estándar para los .feature y otros archivos de test -->
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+
+            <!-- Compatibilidad: por si hay recursos dentro de src/test/java -->
             <testResource>
                 <directory>src/test/java</directory>
                 <excludes>
