@@ -49,20 +49,20 @@ openbank-api-testing/
 │   │   │   │   ├── auth/
 │   │   │   │   │   └── login.feature                # Casos relacionados con autenticación
 │   │   │   │   ├── banks/
-│   │   │   │   │   ├── list-banks.feature           # Pruebas de listado de bancos
+│   │   │   │   │   ├── bank-list.feature           # Pruebas de listado de bancos
 │   │   │   │   │   └── bank-details.feature         # Validación de información de bancos
 │   │   │   │   ├── atms/
-│   │   │   │   │   ├── list-atms.feature            # Listado de ATMs
-│   │   │   │   │   └── create-atm.feature           # Creación de ATMs (sandbox)
+│   │   │   │   │   ├── atm-list.feature            # Listado de ATMs
+│   │   │   │   │   └── atm-create.feature           # Creación de ATMs (sandbox)
 │   │   │   │   ├── accounts/
-│   │   │   │   │   ├── list-accounts.feature        # Pruebas de cuentas del usuario
-│   │   │   │   │   ├── transactions.feature         # Pruebas de transferencia simulada
+│   │   │   │   │   ├── account-list.feature        # Pruebas de cuentas del usuario
+│   │   │   │   │   ├── transaction.feature         # Pruebas de transferencia simulada
 │   │   │   │   │   └── transaction-history.feature  # Historial de transacciones
 │   │   │   │   ├── users/
-│   │   │   │   │   └── register-user.feature        # Registro y gestión de usuarios
+│   │   │   │   │   └── user-register.feature        # Registro y gestión de usuarios
 │   │   │   │   ├── products/
-│   │   │   │   │   ├── list-products.feature        # Listado de productos financieros
-│   │   │   │   │   └── simulate-product.feature     # Simulaciones de productos financieros
+│   │   │   │   │   ├── product-list.feature        # Listado de productos financieros
+│   │   │   │   │   └── product-simulation.feature     # Simulaciones de productos financieros
 │   │   │   │   └── common/
 │   │   │   │       └── environment.feature          # Configuración global (base URL, headers, etc.)
 │   │   │   │
@@ -76,12 +76,12 @@ openbank-api-testing/
 │   │       ├── OpenBankPerformance.jmx              # Escenario global de rendimiento (banco de performance)
 │   │       ├── scenarios/
 │   │       │   ├── auth-test.jmx                    # Prueba de carga en /login
-│   │       │   ├── banks-test.jmx                   # Prueba de carga en /banks y /banks/{id}
-│   │       │   ├── accounts-test.jmx                # Prueba de rendimiento en /accounts
-│   │       │   ├── transactions-test.jmx            # Spike/Throughput test en /transactions
+│   │       │   ├── bank-test.jmx                   # Prueba de carga en /banks y /banks/{id}
+│   │       │   ├── account-test.jmx                # Prueba de rendimiento en /accounts
+│   │       │   ├── transaction-test.jmx            # Spike/Throughput test en /transactions
 │   │       │   ├── history-test.jmx                 # Soak test en /transactions/history
-│   │       │   ├── users-test.jmx                   # Ramp-up test en /users
-│   │       │   └── products-test.jmx                # Load test en /products
+│   │       │   ├── user-test.jmx                   # Ramp-up test en /users
+│   │       │   └── product-test.jmx                # Load test en /products
 │   │       └── results/
 │   │           ├── csv/                             # Resultados crudos de ejecución (por escenario)
 │   │           │   ├── auth-results.csv
