@@ -2,7 +2,7 @@ Feature: Registro de Usuario - POST /users
   Validar el comportamiento del endpoint de creación de usuarios
 
   Background:
-    * url https://apiexplorer-ii-sandbox.openbankproject.com/operationid/OBPv5.1.0-createAtm?version=OBPv5.1.0
+    * url 'https://apisandbox.openbankproject.com/'
     * path 'users'
     * configure headers = { 'Content-Type': 'application/json' }
 

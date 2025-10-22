@@ -1,7 +1,7 @@
 Feature: Pruebas de Autenticación - /login (POST)
 
   Background:
-    * url 'https://apiexplorer-ii-sandbox.openbankproject.com/operationid/OBPv5.1.0-createAtm?version=OBPv5.1.0'
+    * url 'https://apisandbox.openbankproject.com/'
 
   # 2.1 Inicio de sesión válido
   Scenario: 2.1 Inicio de sesión válido
